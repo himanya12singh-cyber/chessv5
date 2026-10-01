@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ChessV2 | Premium Chess</title>
+
+    <meta name="description" content="Play ChessV2, a modern chess game with an elegant interface.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">♞</div>
+
+            <div>
+                <h1>Chess<span>V2</span></h1>
+                <p>THE ART OF STRATEGY</p>
+            </div>
+        </div>
+
+        <div class="sidebar-label">MENU</div>
+
+        <nav class="navigation">
+
+            <button class="nav-item active" id="homeBtn">
+                <span class="nav-icon">⌂</span>
+                <span>Play Chess</span>
+            </button>
+
+            <button class="nav-item" id="newGameBtn">
+                <span class="nav-icon">♟</span>
+                <span>New Game</span>
+            </button>
+
+            <button class="nav-item" id="analysisBtn">
+                <span class="nav-icon">◈</span>
+                <span>Analysis</span>
+            </button>
+
+            <button class="nav-item" id="historyBtn">
+                <span class="nav-icon">◷</span>
+                <span>Game History</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-label">GAME MODES</div>
+
+        <div class="mode-list">
+
+            <button class="mode-item selected" id="computerMode">
+                <span>♟</span>
+                <div>
+                    <strong>Play vs Computer</strong>
+                    <small>Challenge the AI</small>
+                </div>
+            </button>
+
+            <button class="mode-item" id="localMode">
+                <span>♔</span>
+                <div>
+                    <strong>Local Multiplayer</strong>
+                    <small>Play with a friend</small>
+                </div>
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="online-indicator">
+                <span class="green-dot"></span>
+                ChessV2 is ready
+            </div>
+
+            <div class="version">CHESSV2 • VERSION 2.0</div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>ChessV2</span>
+                <span class="breadcrumb-separator">/</span>
+                <strong>Play</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-status">
+                    <span class="green-dot"></span>
+                    Ready to play
+                </div>
+
+                <div class="profile-avatar">H</div>
+
+            </div>
+
+        </header>
+
+
+        <section class="game-layout">
+
+            <!-- LEFT GAME AREA -->
+
+            <div class="board-section">
+
+                <div class="game-heading">
+
+                    <div>
+                        <div class="eyebrow">YOUR NEXT MOVE</div>
+                        <h2>The Royal Arena</h2>
+                        <p>Every move tells a story.</p>
+                    </div>
+
+                    <div class="game-badge">
+                        <span class="badge-dot"></span>
+                        LIVE MATCH
+                    </div>
+
+                </div>
+
+
+                <!-- BLACK PLAYER -->
+
+                <div class="player-card opponent-card">
+
+                    <div class="player-info">
+
+                        <div class="player-avatar black-avatar">♚</div>
+
+                        <div>
+                            <div class="player-name" id="blackPlayerName">
+                                ChessV2 Bot
+                            </div>
+
+                            <div class="player-subtitle">
+                                <span class="status-dot"></span>
+                                Computer Opponent
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="player-rating">
+                        <span>BOT</span>
+                        <strong>♟</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- CHESSBOARD -->
+
+                <div class="board-frame">
+
+                    <div class="board-glow"></div>
+
+                    <div class="board-coordinates left-coordinates">
+                        <span>8</span>
+                        <span>7</span>
+                        <span>6</span>
+                        <span>5</span>
+                        <span>4</span>
+                        <span>3</span>
+                        <span>2</span>
+                        <span>1</span>
+                    </div>
+
+                    <div class="board-coordinates bottom-coordinates">
+                        <span>a</span>
+                        <span>b</span>
+                        <span>c</span>
+                        <span>d</span>
+                        <span>e</span>
+                        <span>f</span>
+                        <span>g</span>
+                        <span>h</span>
+                    </div>
+
+                    <!-- Your JavaScript should generate the 64 squares here -->
+
+                    <div id="chessboard" class="chessboard"></div>
+
+                </div>
+
+
+                <!-- WHITE PLAYER -->
+
+                <div class="player-card user-card">
+
+                    <div class="player-info">
+
+                        <div class="player-avatar white-avatar">♔</div>
+
+                        <div>
+                            <div class="player-name" id="whitePlayerName">
+                                Himanya
+                            </div>
+
+                            <div class="player-subtitle">
+                                <span class="status-dot"></span>
+                                Playing as White
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="player-rating">
+                        <span>PLAYER</span>
+                        <strong>♔</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- BOARD CONTROLS -->
+
+                <div class="board-controls">
+
+                    <button class="control-btn" id="undoBtn">
+                        <span>↶</span>
+                        Undo
+                    </button>
+
+                    <button class="control-btn" id="flipBoardBtn">
+                        <span>⇅</span>
+                        Flip Board
+                    </button>
+
+                    <button class="control-btn" id="restartBtn">
+                        <span>⟳</span>
+                        Restart
+                    </button>
+
+                    <button class="control-btn resign-btn" id="resignBtn">
+                        <span>⚑</span>
+                        Resign
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT PANEL -->
+
+            <aside class="game-sidebar">
+
+                <div class="panel-card game-info-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <div class="eyebrow">MATCH CENTER</div>
+                            <h3>Game Overview</h3>
+                        </div>
+
+                        <div class="panel-menu">•••</div>
+                    </div>
+
+
+                    <div class="turn-indicator" id="turnIndicator">
+
+                        <div class="turn-icon">♔</div>
+
+                        <div>
+                            <small> CURRENT TURN </small>
+                            <strong id="turnText">White to move</strong>
+                        </div>
+
+                        <span class="turn-pulse"></span>
+
+                    </div>
+
+
+                    <div class="timer-grid">
+
+                        <div class="timer-box black-timer">
+                            <div class="timer-label">
+                                <span class="timer-piece">♚</span>
+                                BLACK
+                            </div>
+
+                            <div class="timer-value" id="blackTimer">
+                                10:00
+                            </div>
+                        </div>
+
+                        <div class="timer-box white-timer active-timer">
+                            <div class="timer-label">
+                                <span class="timer-piece">♔</span>
+                                WHITE
+                            </div>
+
+                            <div class="timer-value" id="whiteTimer">
+                                10:00
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-grid">
+
+                        <div class="stat-box">
+                            <span>MOVE</span>
+                            <strong id="moveCount">01</strong>
+                        </div>
+
+                        <div class="stat-box">
+                            <span>CAPTURED</span>
+                            <strong id="capturedCount">0</strong>
+                        </div>
+
+                        <div class="stat-box">
+                            <span>STATUS</span>
+                            <strong class="status-playing" id="gameStatus">Active</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOVE HISTORY -->
+
+                <div class="panel-card moves-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <div class="eyebrow">GAME PROGRESSION</div>
+                            <h3>Move History</h3>
+                        </div>
+
+                        <span class="move-count-badge" id="historyCount">0 MOVES</span>
+
+                    </div>
+
+                    <div class="move-table">
+
+                        <div class="move-table-header">
+                            <span>#</span>
+                            <span>WHITE</span>
+                            <span>BLACK</span>
+                        </div>
+
+                        <div class="move-list" id="moveHistory">
+
+                            <div class="empty-history">
+                                <div class="empty-icon">♞</div>
+                                <p>Your moves will appear here.</p>
+                                <small>Make your first move to begin.</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="move-navigation">
+
+                        <button id="firstMoveBtn" title="First move">|◀</button>
+                        <button id="previousMoveBtn" title="Previous move">◀</button>
+                        <button id="nextMoveBtn" title="Next move">▶</button>
+                        <button id="lastMoveBtn" title="Last move">▶|</button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CAPTURED PIECES -->
+
+                <div class="panel-card captured-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <div class="eyebrow">MATERIAL BALANCE</div>
+                            <h3>Captured Pieces</h3>
+                        </div>
+                    </div>
+
+                    <div class="captured-row">
+                        <span class="captured-label">White captured</span>
+                        <div id="whiteCaptured" class="captured-pieces">—</div>
+                    </div>
+
+                    <div class="captured-divider"></div>
+
+                    <div class="captured-row">
+                        <span class="captured-label">Black captured</span>
+                        <div id="blackCaptured" class="captured-pieces">—</div>
+                    </div>
+
+                </div>
+
+
+                <!-- NEW GAME -->
+
+                <button class="new-game-button" id="newGameMainBtn">
+                    <span>♟</span>
+                    Start New Game
+                    <span class="button-arrow">→</span>
+                </button>
+
+            </aside>
+
+        </section>
+
+
+        <footer class="footer">
+            <span>♞ CHESSV2</span>
+            <span>Think. Plan. Conquer.</span>
+            <span>Made for chess lovers.</span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- YOUR EXISTING JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
